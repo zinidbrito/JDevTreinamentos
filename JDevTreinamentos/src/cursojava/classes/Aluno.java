@@ -139,16 +139,20 @@ public class Aluno {
 			somaNotas += disciplina.getNota();
 
 		}
-		return somaNotas/disciplinas.size(); // divide pelo tamanho da lista realizando a média
+		return somaNotas / disciplinas.size(); // divide pelo tamanho da lista realizando a média
 	}
 
 	// MÉTODO QUE RETORNA TRUE PARA APROVADO E FALSE PARA REPROVADO
-	public boolean getAlunoAprovado() {
+	public String getAlunoAprovado() {
 		double media = this.getMediaNota();
-		if (media >= 70) {
-			return true;
+		if (media >= 50) {
+			if (media >= 70) {
+				return "Aluno aprovado!";
+			} else {
+				return "Aluno em recuperação!";
+			}
 		} else {
-			return false;
+			return "Aluno Reprovado! ";
 		}
 	}
 
