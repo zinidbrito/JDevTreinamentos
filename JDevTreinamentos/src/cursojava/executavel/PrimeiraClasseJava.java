@@ -8,6 +8,7 @@ import cursojava.classes.Disciplina;
 
 public class PrimeiraClasseJava {
 
+	@SuppressWarnings("unlikely-arg-type")
 	public static void main(String[] args) {
 
 		String nome = JOptionPane.showInputDialog("Qual o nome do aluno?");// entrada de dados popup
@@ -43,28 +44,19 @@ public class PrimeiraClasseJava {
 			disciplina.setNota(Double.valueOf(notaDisciplina));
 
 			aluno1.getDisciplinas().add(disciplina); //adiciona disciplina
-			aluno1.getDisciplinas().remove(disciplina); // remover disciplina
-
 
 		}
-			 
-
-		/*
-		 * System.out.println("Nome do aluno1 é: " + aluno1.getNome());
-		 * System.out.println("Idade do aluno1 é: " + aluno1.getIdade());
-		 * System.out.println("Idade do aluno1 é: " + aluno1.getDataNascimento());
-		 * System.out.println("Seu RG é: " + aluno1.getRg());
-		 * System.out.println("Sua escola é : " + aluno1.getNomeEscola());
-		 * System.out.println("A média do aluno1 é: " + aluno1.getMediaNota());
-		 * //operador ternário ? <= pergunta primeira condinção : <== ou segunda codição
-		 * (true of false) System.out.println("Resultado "+ (aluno1.getAlunoAprovado() ?
-		 * "Aprovado" : "Reprovado")); // operador TERNÁRIO ? TRUE : FALSE
-		 * System.out.println("Resultado "+ aluno1.getAlunoAprovado2());
-		 * System.out.println("=====================================================");
-		 */
+			
+		int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma matéria? ");
+		if (escolha == 0 ) {
+			String disciplinaRemover = JOptionPane.showInputDialog("Qual a disciplina? 1, 2 3 ou 4");
+			aluno1.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue() -1);
+		}
+		
 		System.out.println(aluno1.toString()); // Descrição do objeto na memória
 		System.out.println("Resultado: " + (aluno1.getAlunoAprovado() ? "Aprovado" : "Reprovado"));
 		System.out.println("A média do aluno foi " + aluno1.getMediaNota());
+		System.out.println(aluno1.getDisciplinas());
 
 	}
 }
